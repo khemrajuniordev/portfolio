@@ -5,21 +5,11 @@ import { Button } from "@/components/ui/button";
 import {
   SiReact,
   SiTypescript,
-  SiPython,
-  SiDjango,
-  SiPostgresql,
-  SiFlutter,
-  SiDart,
-  SiFirebase,
-  SiGraphql,
-  SiGooglemaps,
   SiTailwindcss,
   SiVite,
   SiWordpress,
   SiSupabase,
 } from "react-icons/si";
-import ndutratImobiliaria from "@/assets/ndutra-imobiliaria.png";
-import euAmazonia from "@/assets/eu-amazonia.png";
 import crmOperadoraSaude from "@/assets/crm-operadora-saude.png";
 import innovaSaude from "@/assets/innova-saude.png";
 import nativaFacil from "@/assets/nativa-facil.jpg";
@@ -32,15 +22,6 @@ const techIcons: Record<string, { icon: React.ElementType; color: string }> = {
   Supabase: { icon: SiSupabase, color: "#3ECF8E" },
   Vite: { icon: SiVite, color: "#646CFF" },
   WordPress: { icon: SiWordpress, color: "#21759B" },
-  Python: { icon: SiPython, color: "#3776AB" },
-  Django: { icon: SiDjango, color: "#092E20" },
-  "Django REST": { icon: SiDjango, color: "#092E20" },
-  PostgreSQL: { icon: SiPostgresql, color: "#4169E1" },
-  Flutter: { icon: SiFlutter, color: "#02569B" },
-  Dart: { icon: SiDart, color: "#0175C2" },
-  Firebase: { icon: SiFirebase, color: "#FFCA28" },
-  GraphQL: { icon: SiGraphql, color: "#E10098" },
-  "Google Maps": { icon: SiGooglemaps, color: "#4285F4" },
 };
 
 const projects = [
@@ -100,56 +81,6 @@ const projects = [
     ],
     type: "Freelancer",
     year: "2024",
-  },
-  {
-    title: "Ndutra Imobiliária",
-    subtitle: "Sistema Imobiliário Completo",
-    description:
-      "Plataforma completa para imobiliária com listagem de imóveis, busca avançada, dashboard administrativo, gestão de clientes e integração de contato.",
-    image: ndutratImobiliaria,
-    liveUrl: "https://ndutraimobiliaria.com",
-    technologies: [
-      "React",
-      "TypeScript",
-      "Python",
-      "Django",
-      "Django REST",
-      "PostgreSQL",
-    ],
-    features: [
-      "Listagem de imóveis para venda e aluguel",
-      "Busca avançada com filtros",
-      "Dashboard administrativo completo",
-      "Gestão de clientes e leads",
-      "Sistema de favoritos",
-      "Integração com WhatsApp",
-      "API REST para comunicação",
-      "Design responsivo",
-    ],
-    type: "Freelancer",
-    year: "2024",
-  },
-  {
-    title: "EU Amazônia",
-    subtitle: "Rede Social de Jornalismo Colaborativo",
-    description:
-      "Aplicativo híbrido que conecta telespectadores ao jornalismo, permitindo compartilhar notícias, criar relatos e participar de enquetes. Desenvolvido para a Rede Amazônica de Televisão.",
-    image: euAmazonia,
-    liveUrl:
-      "https://play.google.com/store/apps/details?id=com.redeamazonica.euamazonia",
-    technologies: ["Flutter", "Dart", "Firebase", "GraphQL", "Google Maps"],
-    features: [
-      "Sistema de cadastro completo",
-      "Upload de mídia (fotos/vídeos)",
-      "Notificações push com Firebase",
-      "Geolocalização com Google Maps",
-      "Sistema de denúncias",
-      "WebView embarcado",
-      "Sistema de enquetes",
-      "Bloqueio de usuários",
-    ],
-    type: "Emprego",
-    year: "2023",
   },
 ];
 
