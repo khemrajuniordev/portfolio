@@ -11,7 +11,6 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useState, useEffect } from "react";
 import {
   SiFlutter,
   SiReact,
@@ -61,19 +60,25 @@ const skillIcons: Record<string, { icon: React.ElementType; color: string }> = {
   "SQL Server": { icon: DiMsqlServer, color: "#CC2927" },
 };
 
-const skillCategories = [
- 
+type SkillLevel = "Básico" | "Intermediário" | "Avançado";
+
+const skillCategories: {
+  title: string;
+  icon: React.ElementType;
+  color: string;
+  skills: { name: string; level: SkillLevel }[];
+}[] = [
   {
     title: "Frontend",
     icon: Code2,
     color: "text-secondary",
     skills: [
-      { name: "React", level: 60 },
-      { name: "TypeScript", level: 60 },
-      { name: "JavaScript", level: 60 },
-      { name: "Next.js", level: 40 },
-      { name: "HTML/CSS", level: 95 },
-      { name: "Bootstrap", level: 90 },
+      { name: "React", level: "Intermediário" },
+      { name: "TypeScript", level: "Intermediário" },
+      { name: "JavaScript", level: "Intermediário" },
+      { name: "Next.js", level: "Básico" },
+      { name: "HTML/CSS", level: "Avançado" },
+      { name: "Bootstrap", level: "Avançado" },
     ],
   },
   {
@@ -81,11 +86,10 @@ const skillCategories = [
     icon: Server,
     color: "text-accent",
     skills: [
-      { name: "Python", level: 60 },
-      { name: "Django REST", level: 0 },
-      { name: "Node.js", level: 50 },
-      
-      { name: "REST APIs", level: 40 },
+      { name: "Python", level: "Intermediário" },
+      { name: "Django REST", level: "Básico" },
+      { name: "Node.js", level: "Intermediário" },
+      { name: "REST APIs", level: "Básico" },
     ],
   },
   {
@@ -93,40 +97,49 @@ const skillCategories = [
     icon: Database,
     color: "text-primary",
     skills: [
-      { name: "MySQL", level: 50 },
-      { name: "PostgreSQL", level: 50 },
-      { name: "SQL Server", level: 50 },
-      { name: "Firebase", level: 50 },
+      { name: "MySQL", level: "Intermediário" },
+      { name: "PostgreSQL", level: "Intermediário" },
+      { name: "SQL Server", level: "Intermediário" },
+      { name: "Firebase", level: "Intermediário" },
     ],
   },
-
-   {
+  {
     title: "IA & Produto",
     icon: BrainCircuit,
     color: "text-primary",
     skills: [
-      { name: "Prompt Engineering", level: 0 },
-      { name: "IA no desenvolvimento", level: 0 },
-      { name: "Integração com API de IA", level: 0 },
-      { name: "Automação com IA", level: 0 },
-      { name: "UX/UI e Design System", level: 70 },
-      { name: "Pesquisa com usuários", level: 70 },
+      { name: "Prompt Engineering", level: "Básico" },
+      { name: "IA no desenvolvimento", level: "Básico" },
+      { name: "Integração com API de IA", level: "Básico" },
+      { name: "Automação com IA", level: "Básico" },
+      { name: "UX/UI e Design System", level: "Avançado" },
+      { name: "Pesquisa com usuários", level: "Avançado" },
     ],
   },
 ];
 
-const getSkillLevelLabel = (level: number) => {
-  if (level === 0) return "ESTAGIÁRIO";
-  if (level >= 85) return "SENIOR";
-  if (level >= 70) return "PLENO";
-  return "JR";
-};
-
-const getSkillLevelStyle = (level: number) => {
-  if (level === 0) return "bg-sky-500/15 text-sky-300 border-sky-500/30";
-  if (level >= 85) return "bg-emerald-500/15 text-emerald-400 border-emerald-500/30";
-  if (level >= 70) return "bg-violet-500/15 text-violet-300 border-violet-500/30";
-  return "bg-amber-500/15 text-amber-300 border-amber-500/30";
+const levelMeta: Record<
+  SkillLevel,
+  { segments: number; label: string; badge: string; bar: string }
+> = {
+  Básico: {
+    segments: 1,
+    label: "Básico",
+    badge: "bg-amber-500/15 text-amber-300 border-amber-500/30",
+    bar: "bg-amber-400",
+  },
+  Intermediário: {
+    segments: 2,
+    label: "Intermediário",
+    badge: "bg-violet-500/15 text-violet-300 border-violet-500/30",
+    bar: "bg-violet-400",
+  },
+  Avançado: {
+    segments: 3,
+    label: "Avançado",
+    badge: "bg-emerald-500/15 text-emerald-400 border-emerald-500/30",
+    bar: "bg-emerald-400",
+  },
 };
 
 const SkillProgress = ({
@@ -135,37 +148,14 @@ const SkillProgress = ({
   delay,
 }: {
   name: string;
-  level: number;
+  level: SkillLevel;
   delay: number;
 }) => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 });
-  const [count, setCount] = useState(0);
 
   const skillIcon = skillIcons[name];
   const IconComponent = skillIcon?.icon;
-  const levelLabel = getSkillLevelLabel(level);
-  const levelStyle = getSkillLevelStyle(level);
-
-  useEffect(() => {
-    if (inView) {
-      let start = 0;
-      const end = level;
-      const duration = 1500;
-      const increment = end / (duration / 16);
-
-      const timer = setInterval(() => {
-        start += increment;
-        if (start >= end) {
-          setCount(end);
-          clearInterval(timer);
-        } else {
-          setCount(Math.floor(start));
-        }
-      }, 16);
-
-      return () => clearInterval(timer);
-    }
-  }, [inView, level]);
+  const meta = levelMeta[level];
 
   return (
     <motion.div
@@ -185,22 +175,25 @@ const SkillProgress = ({
           )}
           <span className="text-sm font-medium truncate">{name}</span>
         </div>
-        <div className="flex items-center gap-2 shrink-0">
-          <span className="text-sm font-bold text-primary">{count}%</span>
-          <span
-            className={`inline-flex items-center rounded-full border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] ${levelStyle}`}
-          >
-            {levelLabel}
-          </span>
-        </div>
+        <span
+          className={`inline-flex shrink-0 items-center rounded-full border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.1em] ${meta.badge}`}
+        >
+          {meta.label}
+        </span>
       </div>
-      <div className="h-2 bg-muted rounded-full overflow-hidden">
-        <motion.div
-          className="h-full bg-gradient-primary rounded-full"
-          initial={{ width: 0 }}
-          animate={inView ? { width: `${level}%` } : {}}
-          transition={{ delay, duration: 1, ease: "easeOut" }}
-        />
+      <div className="flex gap-1">
+        {[0, 1, 2].map((i) => (
+          <motion.div
+            key={i}
+            className={`h-1.5 flex-1 rounded-full ${
+              i < meta.segments ? meta.bar : "bg-muted"
+            }`}
+            initial={{ opacity: 0, scaleX: 0.6 }}
+            animate={inView ? { opacity: 1, scaleX: 1 } : {}}
+            transition={{ delay: delay + i * 0.1, duration: 0.4 }}
+            style={{ transformOrigin: "left" }}
+          />
+        ))}
       </div>
     </motion.div>
   );
