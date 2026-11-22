@@ -103,7 +103,7 @@ const ExperienceSummary = () => {
             >
               <Briefcase className="h-4 w-4 text-primary" />
               <span className="text-sm font-medium text-primary">
-                Experiência
+                Competências
               </span>
             </motion.div>
             <motion.h2
@@ -112,7 +112,7 @@ const ExperienceSummary = () => {
               animate={inView ? { y: 0, opacity: 1 } : {}}
               transition={{ delay: 0.3 }}
             >
-              Resumo da Experiência Profissional
+              Competências por Área
             </motion.h2>
             <div className="h-1 w-20 bg-gradient-primary mx-auto rounded-full" />
           </div>
