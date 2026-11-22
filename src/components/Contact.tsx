@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
+import { SiWhatsapp } from "react-icons/si";
 const Contact = () => {
   return (
     <section id="contato" className="py-12 px-4 sm:py-20 sm:px-6">
@@ -82,15 +83,17 @@ const Contact = () => {
 
                 <div className="space-y-4 w-full max-w-sm">
                   <a
-                    href="mailto:khemrajuniordev@gmail.com"
+                    href="https://wa.me/5592984099339"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="block"
                   >
                     <Button
                       size="lg"
-                      className="w-full bg-background text-primary hover:bg-background/90"
+                      className="w-full bg-[#25D366] text-white hover:bg-[#25D366]/90"
                     >
-                      <Mail className="mr-2 h-5 w-5" />
-                      Enviar Email
+                      <SiWhatsapp className="mr-2 h-5 w-5" />
+                      Chamar no WhatsApp
                     </Button>
                   </a>
 
