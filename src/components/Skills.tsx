@@ -230,7 +230,7 @@ const Skills = () => {
               animate={inView ? { y: 0, opacity: 1 } : {}}
               transition={{ delay: 0.3 }}
             >
-              Stack para IA e Produtos Digitais
+              Stacks
             </motion.h2>
             <div className="h-1 w-20 bg-gradient-primary mx-auto rounded-full" />
           </div>
