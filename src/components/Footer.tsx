@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Heart, Download } from "lucide-react";
+import { Github, Linkedin, Mail, Heart, Download, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Footer = () => {
@@ -54,14 +54,28 @@ const Footer = () => {
               );
             })}
             <motion.a
-              href="/Augusto Ferreira da Silva.pdf"
-              download="Augusto_Ferreira_da_Silva_CV.pdf"
+              href="https://drive.google.com/file/d/1jTedfV-o8rX_D9rH1aBQ0o_OQBgzK4uD/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
               className="p-3 bg-primary/10 border border-primary/30 rounded-full hover:bg-primary/20 transition-all"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              aria-label="Download CV"
+              aria-label="Baixar currículo"
+              title="Currículo"
             >
               <Download className="h-5 w-5 text-primary" />
+            </motion.a>
+            <motion.a
+              href="https://drive.google.com/file/d/1N3ZAj6Lmg2bG8BOkFF4RmTp1K7yxJVBz/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 bg-primary/10 border border-primary/30 rounded-full hover:bg-primary/20 transition-all"
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              aria-label="Ver carta de apresentação"
+              title="Carta de apresentação"
+            >
+              <FileText className="h-5 w-5 text-primary" />
             </motion.a>
           </div>
 

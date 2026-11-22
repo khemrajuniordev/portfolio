@@ -199,8 +199,9 @@ const Hero = () => {
 
               {/* Download CV Button */}
               <a
-                href="/Augusto Ferreira da Silva.pdf"
-                download="Augusto_Ferreira_da_Silva_CV.pdf"
+                href="https://drive.google.com/file/d/1jTedfV-o8rX_D9rH1aBQ0o_OQBgzK4uD/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <motion.div
                   whileHover={{ scale: 1.05, y: -2 }}
@@ -374,8 +375,9 @@ const Hero = () => {
 
                 {/* Download CV Button */}
                 <a
-                  href="/Augusto Ferreira da Silva.pdf"
-                  download="Augusto_Ferreira_da_Silva_CV.pdf"
+                  href="https://drive.google.com/file/d/1jTedfV-o8rX_D9rH1aBQ0o_OQBgzK4uD/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <motion.div
                     whileHover={{ scale: 1.05, y: -2 }}
