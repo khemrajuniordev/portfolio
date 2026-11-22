@@ -10,5 +10,5 @@
     </filter>
   </defs>
   <rect width="32" height="32" rx="6" fill="url(#g)" filter="url(#s)"/>
-  <text x="16" y="22" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="700" font-size="14" fill="white">AF</text>
+  <text x="16" y="21" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="700" font-size="12" fill="white">Rjr</text>
 </svg>
