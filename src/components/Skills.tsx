@@ -12,7 +12,6 @@ import {
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import {
-  SiFlutter,
   SiReact,
   SiFirebase,
   SiTypescript,
@@ -27,7 +26,7 @@ import {
   SiMysql,
   SiPostgresql,
 } from "react-icons/si";
-import { TbBrandReactNative, TbApi } from "react-icons/tb";
+import { TbApi } from "react-icons/tb";
 import { DiMsqlServer } from "react-icons/di";
 
 // Map skill names to their icons and colors
@@ -38,12 +37,7 @@ const skillIcons: Record<string, { icon: React.ElementType; color: string }> = {
   "Automação com IA": { icon: Workflow, color: "#34D399" },
   "UX/UI e Design System": { icon: Palette, color: "#F472B6" },
   "Pesquisa com usuários": { icon: UsersRound, color: "#FBBF24" },
-  "Flutter/Dart": { icon: SiFlutter, color: "#02569B" },
-  "React Native": { icon: TbBrandReactNative, color: "#61DAFB" },
   Firebase: { icon: SiFirebase, color: "#FFCA28" },
-  GetX: { icon: SiFlutter, color: "#8B5CF6" },
-  MobX: { icon: SiReact, color: "#FF9955" },
-  Modular: { icon: SiFlutter, color: "#02569B" },
   React: { icon: SiReact, color: "#61DAFB" },
   TypeScript: { icon: SiTypescript, color: "#3178C6" },
   JavaScript: { icon: SiJavascript, color: "#F7DF1E" },
