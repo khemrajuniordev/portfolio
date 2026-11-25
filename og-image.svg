@@ -23,13 +23,13 @@
       Khemraj Junior
     </text>
     <text x="0" y="100" fill="hsl(215,20%,65%)" font-family="Inter, system-ui, sans-serif" font-size="40">
-      Desenvolvedor Full Stack &amp; Mobile
+      Desenvolvedor Full Stack &amp; IA
     </text>
     
     <!-- Tech stack highlights -->
     <g transform="translate(0,180)" fill="hsl(250,80%,65%)">
       <text x="0" y="0" font-family="Inter, system-ui, sans-serif" font-size="32" font-weight="500">
-        Flutter • React Native • Python/Django • Next.js
+        React • TypeScript • Node.js • Supabase
       </text>
     </g>
   </g>
